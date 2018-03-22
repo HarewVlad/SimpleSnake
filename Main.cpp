@@ -31,7 +31,7 @@ inline void move_snake(char *zoneSecondBuffer, std::vector<int> &snake, int new_
 		zoneSecondBuffer[snake[i]] = '*';
 	}
 
-	Sleep(100);
+	Sleep(50);
 
 	snake.erase(snake.begin(), snake.begin() + 1);
 }
@@ -39,7 +39,7 @@ inline void move_snake(char *zoneSecondBuffer, std::vector<int> &snake, int new_
 void input_system(char *zoneSecondBuffer, std::vector<int> &snake)
 {
 	int old_head_coord = snake.back();
-	if (GetKeyState('A') & 0x8000 // was W
+	if (GetKeyState('A') & 0x8000 // W
 		&& !(GetKeyState('W') & 0x8000)
 		&& !(GetKeyState('S') & 0x8000)
 		&& !(GetKeyState('D') & 0x8000))
@@ -56,7 +56,7 @@ void input_system(char *zoneSecondBuffer, std::vector<int> &snake)
 		}
 	}
 
-	if (GetKeyState('D') & 0x8000 // was S
+	if (GetKeyState('D') & 0x8000 // S
 		&& !(GetKeyState('W') & 0x8000)
 		&& !(GetKeyState('A') & 0x8000)
 		&& !(GetKeyState('S') & 0x8000))
@@ -73,7 +73,7 @@ void input_system(char *zoneSecondBuffer, std::vector<int> &snake)
 		}
 	}
 
-	if (GetKeyState('W') & 0x8000 // was A
+	if (GetKeyState('W') & 0x8000 // A
 		&& !(GetKeyState('A') & 0x8000)
 		&& !(GetKeyState('S') & 0x8000)
 		&& !(GetKeyState('D') & 0x8000))
@@ -90,7 +90,7 @@ void input_system(char *zoneSecondBuffer, std::vector<int> &snake)
 		}
 	}
 
-	if (GetKeyState('S') & 0x8000 // was D
+	if (GetKeyState('S') & 0x8000 // D
 		&& !(GetKeyState('W') & 0x8000)
 		&& !(GetKeyState('A') & 0x8000)
 		&& !(GetKeyState('D') & 0x8000))
