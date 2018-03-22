@@ -10,7 +10,7 @@
 inline void move_snake(char *zoneSecondBuffer, std::vector<int> &snake, int new_head_coord);
 void input_system(char *zoneSecondBuffer, std::vector<int> &snake);
 void food_system(char *zoneSecondBuffer, std::vector<int> &snake, std::vector<int> &food);
-void setCursorPosition(int x, int y);
+void set_cursor_position(int x, int y);
 void draw(char *zoneSecondBuffer, char *zoneOriginalBuffer, char *GameOver);
 
 bool LOSE = false;
@@ -125,7 +125,7 @@ void food_system(char *zoneSecondBuffer, std::vector<int> &snake, std::vector<in
 	}
 }
 
-void setCursorPosition(int x, int y)
+void set_cursor_position(int x, int y)
 {
 	static const HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
 	std::cout.flush();
@@ -143,7 +143,7 @@ void draw(char *zoneSecondBuffer, char *zoneOriginalBuffer, char *GameOver)
 			{
 				continue;
 			}
-			setCursorPosition(i, j);
+			set_cursor_position(i, j);
 			std::cout << zoneSecondBuffer[i * SIZE + j];
 		}
 	}
