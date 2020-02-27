@@ -71,6 +71,17 @@ void initConsole()
 	SetConsoleScreenBufferSize(Console::wHnd, bufferSize);
 }
 
+void initArena()
+{
+	for (size_t y = 0; y < Window::HEIGHT; ++y)
+	{
+		for (size_t x = 0; x < Window::WIDTH; ++x)
+		{
+			arena[x + Window::WIDTH * y].Attributes = BACKGROUND_INTENSITY | FOREGROUND_RED;
+		}
+	}
+}
+
 void initSnake()
 {
 	uint64_t x = 0 + rand() % (Window::WIDTH - 1);
@@ -146,14 +157,6 @@ void moveSnake(MoveDirection moveDirection)
 
 void drawArena()
 {
-	for (size_t y = 0; y < Window::HEIGHT; ++y)
-	{
-		for (size_t x = 0; x < Window::WIDTH; ++x)
-		{
-			arena[x + Window::WIDTH * y].Attributes = BACKGROUND_INTENSITY | FOREGROUND_RED;
-		}
-	}
-
 	WriteConsoleOutputA(Console::wHnd,
 		arena,
 		Console::characterBufferSize,
@@ -164,6 +167,7 @@ void drawArena()
 void onInit()
 {
 	initConsole();
+	initArena();
 	initSnake();
 	initFood();
 }
