@@ -108,42 +108,32 @@ bool testSnakeSnake()
 void moveSnake(MoveDirection moveDirection)
 {
 	assert(snake.size() != 0);
+
 	Position tail = snake.back();
+	for (size_t i = snake.size() - 1; i > 0; i--)
+	{
+		snake[i] = snake[i - 1];
+	}
+
 	switch (moveDirection)
 	{
 		case TOP:
 		{
-			for (size_t i = snake.size() - 1; i > 0; i--)
-			{
-				snake[i] = snake[i - 1];
-			}
 			snake[0].y = snake[0].y == 0 ? Window::HEIGHT - 1 : snake[0].y - 1;
 		}
 		break;
 		case DOWN:
 		{
-			for (size_t i = snake.size() - 1; i > 0; i--)
-			{
-				snake[i] = snake[i - 1];
-			}
 			snake[0].y = snake[0].y == Window::HEIGHT - 1 ? 0 : snake[0].y + 1;
 		}
 		break;
 		case LEFT:
 		{
-			for (size_t i = snake.size() - 1; i > 0; i--)
-			{
-				snake[i] = snake[i - 1];
-			}
 			snake[0].x = snake[0].x == 0 ? Window::WIDTH - 1 : snake[0].x - 1;
 		}
 		break;
 		case RIGHT:
 		{
-			for (size_t i = snake.size() - 1; i > 0; i--)
-			{
-				snake[i] = snake[i - 1];
-			}
 			snake[0].x = snake[0].x == Window::WIDTH - 1 ? 0 : snake[0].x + 1;
 		}
 		break;
