@@ -106,12 +106,9 @@ bool testSnakeFood()
 
 bool testSnakeSnake()
 {
-	for (size_t i = 0; i < snake.size() - 1; i++)
+	for (size_t i = 1; i < snake.size(); i++)
 	{
-		for (size_t j = i + 1; j < snake.size(); j++)
-		{
-			if (snake[i] == snake[j]) return true;
-		}
+		if (snake[0] == snake[i]) return true;
 	}
 	return false;
 }
